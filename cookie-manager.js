@@ -24,7 +24,8 @@ CookieManager = (function() {
         chrome.cookies.remove({url: url, name: cookie.name});
     };
 
-    var CookieManager = function(domain) {
+    var CookieManager = function(url, domain) {
+        this.url = url;
         this.domain = domain;
         this.profiles = {};
     };
@@ -59,7 +60,7 @@ CookieManager = (function() {
         },
 
         clearCookies: function(callback) {
-            chrome.cookies.getAll({domain: this.domain}, function(cookies) {
+            chrome.cookies.getAll({url: this.url}, function(cookies) {
                 for (var i = 0; i < cookies.length; i++) {
                     var cookie = cookies[i];
                     deleteCookie(cookie);

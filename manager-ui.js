@@ -6,7 +6,7 @@ $(function() {
         var domain = tab.url.match(domainRegex)[1];
         $('.domain').text(domain);
 
-        var cookieManager = new CookieManager(domain);
+        var cookieManager = new CookieManager(tab.url, domain);
 
         $('#clear-cookies').click(function() {
             cookieManager.clearCookies();
@@ -50,7 +50,7 @@ $(function() {
 
         $('#save-profile').submit(function() {
             var name = $('#profile-name').val();
-            chrome.cookies.getAll({domain: domain}, function(cookies) {
+            chrome.cookies.getAll({url: tab.url}, function(cookies) {
                 cookieManager.saveProfile(name, cookies);
                 injectProfile(name, cookies);
                 $('#profile-name').val('');
