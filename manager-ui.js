@@ -44,6 +44,10 @@ $(function() {
             injectProfile(name);
         }
 
+        $('a.submit').click(function() {
+            $(this).parents('form:first').submit();
+        });
+
         $('#save-profile').submit(function() {
             var name = $('#profile-name').val();
             chrome.cookies.getAll({domain: domain}, function(cookies) {
