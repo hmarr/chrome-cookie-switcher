@@ -53,7 +53,7 @@ CookieManager = (function() {
         },
 
         deleteProfile: function(name) {
-            var profile = this.getProfiles();
+            var profiles = this.getProfiles();
             delete profiles[name];
             localStorage.setItem(this.domain, JSON.stringify(profiles));
         },
