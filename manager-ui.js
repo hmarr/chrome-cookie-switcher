@@ -53,6 +53,8 @@ $(function() {
             var profileBox = $('#profiles');
             profileBox.append(container.append(actions));
             profileBox.append($('<div />').addClass('clearfix'));
+
+            updateNoProfilesMessage();
         };
 
         // Load previously saved profiles on popup load
