@@ -2,11 +2,11 @@
     "name": "Cookie Switcher",
     "version": "0.1",
     "description": "Easily switch between accounts on a website.",
-    "icons": { "16": "icon16.png",
-               "48": "icon48.png",
-              "128": "icon128.png" },
+    "icons": { "16": "images/icon16.png",
+               "48": "images/icon48.png",
+              "128": "images/icon128.png" },
     "page_action": {
-        "default_icon": "icon19.png",
+        "default_icon": "images/icon19.png",
         "popup": "cookie-switcher.html"
     },
     "background_page": "background.html",
