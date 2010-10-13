@@ -10,7 +10,19 @@ $(function() {
 
         $('#clear-cookies').click(function() {
             cookieManager.clearCookies();
+
+            var message = 'Cookies have been removed';
+            message += '<br />Refresh the page to see the changes';
+            showStatusMessage(message);
         });
+
+        var showStatusMessage = function(message) {
+            var messageBox = $('<div />').addClass('message')
+            messageBox.append($('<div />').html(message));
+
+            $('#status').append(messageBox.css('display', 'none'));
+            messageBox.slideDown().delay(2500).slideUp();
+        };
 
         var updateNoProfilesMessage = function() {
             if ($('.profile-item').length == 0) {
@@ -31,11 +43,7 @@ $(function() {
 
                 var message = 'Successfully loaded profile "' + name + '"';
                 message += '<br />Refresh the page to see the changes';
-                var messageBox = $('<div />').addClass('message')
-                messageBox.append($('<div />').html(message));
-
-                $('#status').append(messageBox.css('display', 'none'));
-                messageBox.slideDown().delay(2500).slideUp();
+                showStatusMessage(message);
             });
             loadLink = loadLink.attr('href', 'javascript:void(0)');
             actions = actions.append(loadLink.addClass('button'));
