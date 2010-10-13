@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+    <html>
+        <style type="text/css">
+            body {
+                font-family: FreeSans, Helvetica, sans-serif;
+                font-size: 0.875em;
+                width: 300px;
+                background: #eee;
+                color: #222;
+                text-shadow: 0 1px 1px #fff;
+            }
+
+            h1, h2, h3 {
+                font-weight: 100;
+                margin-bottom: 0;
+            }
+
+            .clearfix {
+                clear: both;
+            }
+
+            .profile-item {
+                margin-bottom: 12px;
+            }
+
+            .actions {
+                float: right;
+            }
+
+            a {
+                color: #4183C4;
+                text-decoration: none;
+            }
+
+            a.button {
+                font-size: 11px;
+            	display: inline-block;
+                padding: 3px 6px 0px;
+                color: #fff;
+                text-decoration: none;
+                -webkit-border-radius: 6px;
+                -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+                text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+                position: relative;
+                cursor: pointer;
+                margin-left: 8px;
+            }
+
+            a.button, a.button:visited {
+                background: -webkit-gradient(
+                    linear,
+                    left bottom,
+                    left top,
+                    color-stop(0.43, rgb(41,128,228)),
+                    color-stop(1, rgb(84,153,227))
+                );
+            }
+
+            a.button:hover {
+                background: -webkit-gradient(
+                    linear,
+                    left bottom,
+                    left top,
+                    color-stop(0.43, rgb(34,111,199)),
+                    color-stop(1, rgb(77,141,209))
+                );
+            }
+
+        </style>
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript" src="cookie-manager.js"></script>
+        <script type="text/javascript" src="manager-ui.js"></script>
+    </script>
+    </head>
+    <body>
+        <h1>Cookie Switcher</h1>
+
+        <h2 class="domain"></h2>
+        <a href="javascript:void()" id="clear-cookies">
+            Clear all cookies for <span class="domain"></span>
+        </a>
+
+        <h2>Profiles</h2>
+        <div id="profiles"></div>
+        <p>
+            Profile name: 
+            <form id="save-profile">
+                <input type="text" id="profile-name" />
+                <input type="submit" value="Save" />
+            </form>
+        </p>
+    </body>
+</html>

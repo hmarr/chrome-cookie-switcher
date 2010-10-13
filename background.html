@@ -1,0 +1,7 @@
+<script type="text/javascript">
+    chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+        if (!tab.url.match(/^chrome:\//) && changeInfo.status == 'complete') {
+            chrome.pageAction.show(tabId);
+        }
+    });
+</script>

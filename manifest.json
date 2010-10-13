@@ -1,0 +1,15 @@
+{
+    "name": "Cookie Switcher",
+    "version": "0.1",
+    "description": "Easily switch between accounts on a website.",
+    "page_action": {
+        "default_icon": "icon.png",
+        "popup": "cookie-switcher.html"
+    },
+    "background_page": "background.html",
+    "permissions": [
+        "tabs",
+        "cookies",
+        "http://*/*"
+    ]
+}
