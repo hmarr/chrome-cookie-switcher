@@ -71,6 +71,7 @@ $(function() {
         $('#save-profile').submit(function() {
             var name = $('#profile-name').val();
             chrome.cookies.getAll({url: tab.url}, function(cookies) {
+                console.log(cookies);
                 cookieManager.saveProfile(name, cookies);
                 injectProfile(name, cookies);
                 $('#profile-name').val('');
