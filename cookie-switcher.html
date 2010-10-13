@@ -18,9 +18,24 @@
 
             .clearfix { clear: both; }
 
-            .profile-item { margin-bottom: 12px; }
+            .profile-item { margin-bottom: 6px; }
 
             .actions { float: right; }
+
+            #save-profile { margin-top: 16px; }
+
+            #new-profile-button { float: right; }
+
+            #profile-name {
+                float: left;
+                border: 1px solid #aaa;
+                display: inline-block;
+                text-decoration: none;
+                padding: 2px 5px;
+                -webkit-border-radius: 6px;
+                outline: none;
+                margin: 0;
+            }
 
             a {
                 color: #4183C4;
@@ -63,6 +78,16 @@
                 );
             }
 
+            .message {
+                font-size: 0.9em;
+                color: #555;
+                text-align: center;
+            }
+
+            .message div {
+                padding: 8px 0 0 0;
+            }
+
         </style>
         <script type="text/javascript" src="jquery.min.js"></script>
         <script type="text/javascript" src="cookie-manager.js"></script>
@@ -78,13 +103,18 @@
         </a>
 
         <h2>Profiles</h2>
+        <div id="no-profiles-message">
+            You have no profiles for this website.<br />
+            Add some using the box below.
+        </div>
         <div id="profiles"></div>
-        <p>
-            Profile name: 
-            <form id="save-profile">
-                <input type="text" id="profile-name" />
-                <a class="button submit">Save</a>
-            </form>
-        </p>
+        <form id="save-profile">
+            <input placeholder="Profile name" type="text" id="profile-name" />
+            <a id="new-profile-button" class="button submit">
+                Create new profile
+            </a>
+        </form>
+        <div class="clearfix"></div>
+        <div id="status"></div>
     </body>
 </html>

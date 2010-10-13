@@ -12,6 +12,14 @@ $(function() {
             cookieManager.clearCookies();
         });
 
+        var updateNoProfilesMessage = function() {
+            if ($('.profile-item').length == 0) {
+                $('#no-profiles-message').show();
+            } else {
+                $('#no-profiles-message').hide();
+            }
+        };
+
         // Inject a new profile element into the profiles box in the popup
         var injectProfile = function(name) {
             var container = $('<div />').text(name).addClass('profile-item');
@@ -20,6 +28,14 @@ $(function() {
             // Link to load the profile's cookies
             var loadLink = $('<a />').text('Load').click(function() {
                 cookieManager.loadProfile(name);
+
+                var message = 'Successfully loaded profile "' + name + '"';
+                message += '<br />Refresh the page to see the changes';
+                var messageBox = $('<div />').addClass('message')
+                messageBox.append($('<div />').html(message));
+
+                $('#status').append(messageBox.css('display', 'none'));
+                messageBox.slideDown().delay(2500).slideUp();
             });
             loadLink = loadLink.attr('href', 'javascript:void(0)');
             actions = actions.append(loadLink.addClass('button'));
@@ -28,6 +44,7 @@ $(function() {
             var deleteLink = $('<a />').text('Delete').click(function() {
                 cookieManager.deleteProfile(name);
                 container.remove();
+                updateNoProfilesMessage();
             });
             deleteLink = deleteLink.attr('href', 'javascript:void(0)');
             actions = actions.append(deleteLink.addClass('button'));
@@ -43,6 +60,7 @@ $(function() {
         for (var name in profiles) {
             injectProfile(name);
         }
+        updateNoProfilesMessage();
 
         $('a.submit').click(function() {
             $(this).parents('form:first').submit();
